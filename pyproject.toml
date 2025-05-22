@@ -48,3 +48,13 @@ dependencies = [
 dev = [
     "ipykernel>=6.29.5",
 ]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$|\.ipynb$'
+extend-exclude = '''
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+^/docs
+'''
