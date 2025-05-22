@@ -1,0 +1,4 @@
+gradio
+Python-dotenv
+sendgrid
+openai-agents

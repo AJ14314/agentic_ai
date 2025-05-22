@@ -89,14 +89,14 @@ class Me:
     def __init__(self):
         self.gemini = OpenAI(
             api_key=os.getenv("GEMINI_API_KEY"),
-            base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+            base_url=os.getenv("GEMINI_URL"),
         )
         self.GEMINI_MODEL = os.getenv("GEMINI_MODEL")
-        self.OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL")
+        self.LLAMA3_3_MODEL = os.getenv("GROQ_MODEL_LLAMA4_MAV")
         self.evaluation_model = ""
-        self.openrouter = OpenAI(
-            api_key=os.getenv("OPENROUTER_API_KEY"),
-            base_url="https://openrouter.ai/api/v1",
+        self.llama3_3_groq = OpenAI(
+            api_key=os.getenv("GROQ_API_KEY"),
+            base_url=os.getenv("GROQ_URL"),
         )
         self.name = "Anand Jain"
         reader = PdfReader("me/linkedin.pdf")
@@ -114,8 +114,6 @@ class Me:
                 self.resume += text
         with open("me/summary.txt", "r", encoding="utf-8") as f:
             self.summary = f.read()
-        with open("me/resume.txt", "r", encoding="utf-8") as f:
-            self.resumetxt = f.read()
 
     def handle_tool_call(self, tool_calls):
         results = []
@@ -141,7 +139,7 @@ class Me:
             f"Include {self.name}'s name in all greetings.\n\n"
             f"You specialize in answering questions about {self.name}'s career, background, skills, and experience. "
             f"Your job is to faithfully represent {self.name} in all conversations, as if you're speaking to a potential client or employer.\n\n"
-            f"You are provided with a summary of {self.name}'s background, LinkedIn profile, resumetxt and resume, which you should use to inform your responses. "
+            f"You are provided with a summary of {self.name}'s background, LinkedIn profile, and resume, which you should use to inform your responses. "
             f"Be professional and engaging at all times.\n\n"
             f"If someone expresses interest in job opportunities or mentions looking for a job change, politely ask for their email "
             f"and record it using the `record_user_details` tool. Then, provide them with {self.name}'s email address.\n\n"
@@ -157,7 +155,6 @@ class Me:
             f"\n\n## Summary:\n{self.summary}\n\n"
             f"## LinkedIn Profile:\n{self.linkedin}\n\n"
             f"## Resume:\n{self.resume}\n\n"
-            f"## Resume Text:\n{self.resumetxt}\n\n"
             f"With this context, please chat with the user, always staying in character as {self.name}."
         )
 
@@ -177,7 +174,6 @@ class Me:
             f"\n\n## Summary:\n{self.summary}\n\n"
             f"## LinkedIn Profile:\n{self.linkedin}\n\n"
             f"## Resume:\n{self.resume}\n\n"
-            f"## Resume Text:\n{self.resumetxt}\n\n"
             f"Based on this context, evaluate the Agent’s most recent response. "
             f"Reply with a clear judgment on whether the response is acceptable and provide your feedback."
         )
@@ -197,19 +193,16 @@ class Me:
     def evaluate(self, reply, message, history) -> Evaluation:
 
         try:
-            # First attempt with OpenRouter
+            # First attempt with Groq LLAMA Model
             messages = [
-                {"role": "system", "content": self.evaluator_system_prompt()}
-            ] + [
+                {"role": "system", "content": self.evaluator_system_prompt()},
                 {
                     "role": "user",
                     "content": self.evaluator_user_prompt(reply, message, history),
-                }
+                },
             ]
 
-            print(
-                f"Attempting evaluation with OpenRouter model: {self.OPENROUTER_MODEL}"
-            )
+            print(f"Attempting evaluation with Groq LLAMA model: {self.LLAMA3_3_MODEL}")
             # Artificially inject RateLimitError for testing
             # DEBUG_FORCE_RATE_LIMIT = os.getenv("DEBUG_FORCE_RATE_LIMIT", "false").lower() == "true"
             # if DEBUG_FORCE_RATE_LIMIT:
@@ -232,26 +225,25 @@ class Me:
             #         code=429
             #     )
 
-            response = self.openrouter.beta.chat.completions.parse(
-                model=self.OPENROUTER_MODEL,
+            response = self.llama3_3_groq.beta.chat.completions.parse(
+                model=self.LLAMA3_3_MODEL,
                 messages=messages,
                 response_format=Evaluation,
             )
 
-            self.evaluation_model = self.OPENROUTER_MODEL
+            self.evaluation_model = self.LLAMA3_3_MODEL
             return response.choices[0].message.parsed
 
         except Exception as e:
-            print("OpenRouter rate limit exceeded - falling back to Gemini", e)
+            print("Groq rate limit exceeded - falling back to Gemini", e)
 
             # Direct fallback to Gemini
             messages = [
-                {"role": "system", "content": self.evaluator_system_prompt()}
-            ] + [
+                {"role": "system", "content": self.evaluator_system_prompt()},
                 {
                     "role": "user",
                     "content": self.evaluator_user_prompt(reply, message, history),
-                }
+                },
             ]
 
             print(f"Using Gemini model: {self.GEMINI_MODEL}")
@@ -280,24 +272,31 @@ class Me:
         )
 
         # Generate revised response using the model
-        response = self.gemini.chat.completions.create(
-            model=self.GEMINI_MODEL, messages=messages
+        response = self.llama3_3_groq.chat.completions.create(
+            model=self.LLAMA3_3_MODEL, messages=messages
         )
 
         return response.choices[0].message.content
 
+    def clean_history(self, messages):
+        return [
+            {"role": m["role"], "content": m["content"]}
+            for m in messages
+            if "role" in m and "content" in m
+        ]
+
     def chat(self, message, history):
         messages = (
             [{"role": "system", "content": self.system_prompt()}]
-            + history
+            + self.clean_history(history)
             + [{"role": "user", "content": message}]
         )
         done = False
         response = None  # Initialize response outside loop
 
         while not done:
-            response = self.gemini.chat.completions.create(
-                model=self.GEMINI_MODEL, messages=messages, tools=tools
+            response = self.llama3_3_groq.chat.completions.create(
+                model=self.LLAMA3_3_MODEL, messages=messages, tools=tools
             )
 
             if response.choices[0].finish_reason == "tool_calls":

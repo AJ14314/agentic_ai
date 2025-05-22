@@ -1,0 +1,59 @@
+Technical Experience
+HCL Technologies - Technical Lead
+January 2022 - Present
+
+1. Spearheaded the creation of a Proof of Concept (POC) for Ikano Bank using JSONATA, reducing the number of microservices and significantly lowering operational costs, while enhancing system maintainability.
+2. Designed and implemented a high-performance, scalable framework using Node.js (Express.js) and a JSON-based constant file, successfully reverse-engineering a Java codebase to Node.js, improving code efficiency and reducing development time.
+3. Developed scalable backend services and APIs with Node.js, Express.js, JEST, and Mocha, and optimized cloud infrastructure using AWS Lambda, CloudFormation, and ECS for serverless and containerized applications, improving deployment speed and enhancing application scalability.
+4. Led the successful integration of new features and infrastructure for Telstra, ensuring timely delivery and client satisfaction, driving an increase in customer engagement.
+5. Streamlined development processes by implementing CI/CD pipelines, conducting comprehensive code reviews, and optimizing system performance, resulting in a reduction in release time and boosting team productivity.
+6. Mentored junior developers, facilitated cross-functional collaboration, and successfully recruited top talent to build high-performing teams, leading to improved team productivity and employee satisfaction.
+
+
+Zensar Technologies - Senior Software Engineer
+February 2021 - January 2022
+
+1. Improved the billing process by developing ACAT, a web-based billing tool using Node.js and Angular, resulting in a significant reduction in billing errors and increased efficiency.
+2. Enhanced team collaboration by mentoring team members, leading to a notable improvement in the timely resolution of technical challenges and better team cohesion.
+3. Optimized code performance, significantly enhancing user experience and system efficiency, while successfully managing the recruitment and screening of over 20 project participants, showcasing strong project management skills.
+
+
+Accenture Solutions Pvt. Ltd. - Application Development Analyst
+April 2019 - February 2021
+
+1. Improved data archiving efficiency using Node.js and AWS, reducing server costs and ensuring high data availability, thereby streamlining data management processes and enhancing overall system reliability.
+2. Directed the requirement-gathering process, documenting client needs and translating them into precise technical specifications, showcasing exceptional communication and project management skills.
+3. Led development, testing, and release phases to deliver a robust, scalable, and high-performance archival tool that exceeded client expectations, resulting in a significant increase in client satisfaction and demonstrating strong leadership and technical expertise.
+
+Tata Consultancy Services Ltd. - System Engineer
+August 2016 - March 2019
+
+1. Led the development of a global web-based Identity Management System, streamlining hotel guest identity uploads and improving operational efficiency.
+2. Designed and deployed a hybrid Android app for efficient guest check-ins, reducing front desk wait times and optimizing the check-in process.
+3. Resolved complex technical issues globally, ensuring high service standards through effective problem-solving and root cause analysis, achieving a high uptime rate.
+4. Developed a Self Check-in Application that enabled guests to enter details via tablets, eliminating wait times for Guest Service Associates and enhancing guest satisfaction.
+
+
+Education
+Medicaps Institue of Technology & Management - Bachelor of Engineering (C.S.)
+July 2012 - July 2016
+8.2910 CGPA
+
+
+Skills
+
+1. Proficient in JavaScript (ES6+), TypeScript, and Java programming languages.
+2. Experienced with Node.js, Express.js, Spring Boot, Angular, and React frameworks and libraries.
+3. Skilled in Camunda for business process management.
+4. Familiar with Kafka for message queues.
+5. Well-versed in AWS (Lambda, ECS, S3, EFS) and Docker for cloud and storage solutions.
+6. Proficient in designing and developing REST APIs, microservices, and serverless architectures for backend development.
+7. Knowledgeable in PostgreSQL and MySQL database management systems.
+8. Familiar with Postman, IntelliJ, and Visual Studio Code for tools and technologies.
+9. Experienced with JEST and Mocha testing frameworks.
+
+
+Awards
+1. Received client appreciation for delivering POC1 within the time limit, providing a comprehensive demo, and earning recognition with awards such as the "Excellence in Innovation Award" and "Client Satisfaction Award" for outstanding performance and timely delivery.
+2. Received client appreciation from Telstra for consistent support and exceptional performance.
+3. Awarded the Pinnacle Award for consistent performance and the Beacon Award for delivering innovative solutions at Accenture Solutions Pvt. Ltd.
