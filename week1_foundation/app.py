@@ -85,8 +85,8 @@ class Me:
             api_key=os.getenv("GEMINI_API_KEY"),
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
-        self.GEMINI_MODEL = "gemini-2.5-flash-preview-04-17"
-        self.OPENROUTER_MODEL = "meta-llama/llama-3.3-8b-instruct:free"
+        self.GEMINI_MODEL = os.getenv("GEMINI_MODEL")
+        self.OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL")
         self.evaluation_model = ""
         self.openrouter = OpenAI(
             api_key=os.getenv("OPENROUTER_API_KEY"),
