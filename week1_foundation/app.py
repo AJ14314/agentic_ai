@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from openai import OpenAI
+from openai import OpenAI, RateLimitError
 import json
 import os
 import requests
@@ -84,6 +84,9 @@ class Me:
             api_key=os.getenv("GEMINI_API_KEY"),
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
         )
+        self.GEMINI_MODEL = "gemini-2.5-flash-preview-04-17"
+        self.OPENROUTER_MODEL = "meta-llama/llama-3.3-8b-instruct:free"
+        self.evaluation_model = ""
         self.openrouter = OpenAI(
             api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1"
@@ -155,20 +158,76 @@ If the user is engaging in discussion, try to steer them towards getting in touc
 
     def evaluate(self,reply, message, history) -> Evaluation:
 
-        messages = [{"role": "system", "content": self.evaluator_system_prompt()}] + [{"role": "user", "content": self.evaluator_user_prompt(reply, message, history)}]
-        response = self.openrouter.beta.chat.completions.parse(
-        model="meta-llama/llama-3.3-8b-instruct:free",
-        messages=messages,
-        response_format=Evaluation
-        )
-        return response.choices[0].message.parsed
+        try:
+            # First attempt with OpenRouter
+            messages = [{
+                "role": "system",
+                "content": self.evaluator_system_prompt()
+            }] + [{
+                "role": "user",
+                "content": self.evaluator_user_prompt(reply, message, history)
+            }]
+
+            print(f"Attempting evaluation with OpenRouter model: {self.OPENROUTER_MODEL}")
+            # Artificially inject RateLimitError for testing
+            # DEBUG_FORCE_RATE_LIMIT = os.getenv("DEBUG_FORCE_RATE_LIMIT", "false").lower() == "true"
+            # if DEBUG_FORCE_RATE_LIMIT:
+            #     raise RateLimitError(
+            #         message="Rate limit exceeded (test)",
+            #         body={
+            #             "error": {
+            #                 "message": "Rate limit exceeded: free-models-per-day",
+            #                 "code": 429,
+            #                 "metadata": {
+            #                     "headers": {
+            #                         "X-RateLimit-Limit": "50",
+            #                         "X-RateLimit-Remaining": "0",
+            #                         "X-RateLimit-Reset": "1747872000000"
+            #                     }
+            #                 }
+            #             },
+            #             "user_id": "test_user"
+            #         },
+            #         code=429
+            #     )
+
+            response = self.openrouter.beta.chat.completions.parse(
+                model=self.OPENROUTER_MODEL,
+                messages=messages,
+                response_format=Evaluation
+            )
+
+            self.evaluation_model = self.OPENROUTER_MODEL
+            return response.choices[0].message.parsed
+
+        except Exception as e:
+            print("OpenRouter rate limit exceeded - falling back to Gemini", e)
+
+            # Direct fallback to Gemini
+            messages = [{
+                "role": "system",
+                "content": self.evaluator_system_prompt()
+            }] + [{
+                "role": "user",
+                "content": self.evaluator_user_prompt(reply, message, history)
+            }]
+
+            print(f"Using Gemini model: {self.GEMINI_MODEL}")
+            response = self.gemini.beta.chat.completions.parse(
+                model=self.GEMINI_MODEL,
+                messages=messages,
+                response_format=Evaluation
+            )
+
+            self.evaluation_model = self.GEMINI_MODEL
+            return response.choices[0].message.parsed
 
     def rerun(self, reply, message, history, feedback):
         updated_system_prompt = self.system_prompt() + f"\n\n## Previous answer rejected\nYou just tried to reply, but the quality control rejected your reply\n"
         updated_system_prompt += f"## Your attempted answer:\n{reply}\n\n"
         updated_system_prompt += f"## Reason for rejection:\n{feedback}\n\n"
         messages = [{"role": "system", "content": updated_system_prompt}] + history + [{"role": "user", "content": message}]
-        response = self.gemini.chat.completions.create(model="gemini-2.5-flash-preview-04-17", messages=messages)
+        response = self.gemini.chat.completions.create(model=self.GEMINI_MODEL, messages=messages)
         return response.choices[0].message.content
 
     def chat(self, message, history):
@@ -178,7 +237,7 @@ If the user is engaging in discussion, try to steer them towards getting in touc
 
         while not done:
             response = self.gemini.chat.completions.create(
-                model="gemini-2.5-flash-preview-04-17",
+                model=self.GEMINI_MODEL,
                 messages=messages,
                 tools=tools
             )
@@ -200,7 +259,7 @@ If the user is engaging in discussion, try to steer them towards getting in touc
         evaluation = self.evaluate(response.choices[0].message.content, message, history)
 
         if evaluation.is_acceptable:
-            print(f"Passed evaluation from ""meta-llama/llama-3.3-8b-instruct:free"" - returning reply")
+            print(f"Passed evaluation from {self.evaluation_model} - returning reply")
             return response.choices[0].message.content
         else:
             print("Failed evaluation - retrying")
