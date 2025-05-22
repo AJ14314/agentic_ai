@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from openai import OpenAI, RateLimitError
 import json
 import os
+import time
 import requests
 from PyPDF2 import PdfReader
 import gradio as gr
@@ -265,9 +266,42 @@ If the user is engaging in discussion, try to steer them towards getting in touc
             print("Failed evaluation - retrying")
             print(evaluation.feedback)
             self.rerun(response.choices[0].message.content, message, history, evaluation.feedback)
-            return response.choices[0].message.content  # Or handle rerun differently
+            return response.choices[0].message.content
 
 
 if __name__ == "__main__":
     me = Me()
-    gr.ChatInterface(me.chat, type="messages").launch()
+
+    def log_user_info(message, history, request: gr.Request):
+        # Get user information from the request parameter
+        if request:
+            ip = request.client.host
+            user_agent = request.headers.get("User-Agent", "Unknown")
+            timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+
+            # Get location info using ipinfo.io (or use another API if you prefer)
+            location = "Unknown"
+            try:
+                resp = requests.get(f"https://ipinfo.io/{ip}/json", timeout=2)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    if data.get("bogon"):
+                        location = "Bogon IP Localhost/Private Network"
+                    else:
+                        city = data.get("city", "")
+                        region = data.get("region", "")
+                        country = data.get("country", "")
+                        location = f"{city}, {region}, {country}".strip(", ")
+            except Exception as e:
+                print(f"Location lookup failed: {e}", flush=True)
+
+            # Log user information
+            print(f"[{timestamp}] User Info - IP: {ip}, Location: {location}, User-Agent: {user_agent}", flush=True)
+
+        # Call the original chat function
+        return me.chat(message, history)
+
+    gr.ChatInterface(
+        fn=log_user_info,
+        type="messages"
+    ).launch()
