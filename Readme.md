@@ -21,18 +21,38 @@
 
 ## Table of Contents 📋
 
-- [Getting Started](#getting-started-)
-- [What Are AI Agents?](#what-are-ai-agents-)
-- [Agentic Systems Architecture](#agentic-systems-architecture-)
-- [Five Workflow Design Patterns](#five-workflow-design-patterns-)
-- [Agents: Beyond Structured Workflows](#agents-beyond-structured-workflows-)
-- [Risk Considerations](#risk-of-agent-frameworks-)
-- [Agentic AI Frameworks](#agentic-ai-frameworks-)
-- [Complex Frameworks](#complex-ones-)
-- [Top Level Complex Frameworks](#top-level-complex-)
-- [Resources vs Tools](#resources-vs-tools-the-building-blocks-)
-- [OpenAI Agents SDK](#openai-agents-sdk-)
-- [Contributing](#contributing-)
+- [🤖 AI Agents Framework](#-ai-agents-framework)
+  - [Table of Contents 📋](#table-of-contents-)
+  - [Getting Started 🚀](#getting-started-)
+  - [What Are AI Agents? 🧠](#what-are-ai-agents-)
+  - [Agentic Systems Architecture 🏗️](#agentic-systems-architecture-️)
+  - [Five Workflow Design Patterns 📊](#five-workflow-design-patterns-)
+    - [1. Prompt Chaining ⛓️](#1-prompt-chaining-️)
+    - [2. Routing 🔀](#2-routing-)
+    - [3. Parallelization ⚡](#3-parallelization-)
+    - [4. Orchestrator-Worker 🎭](#4-orchestrator-worker-)
+    - [5. Evaluator-Optimizer ✅](#5-evaluator-optimizer-)
+  - [Agents: Beyond Structured Workflows 🔄](#agents-beyond-structured-workflows-)
+  - [Risk of Agent Frameworks ⚠️](#risk-of-agent-frameworks-️)
+  - [Agentic AI Frameworks 🛠️](#agentic-ai-frameworks-️)
+  - [Complex Ones 🧩](#complex-ones-)
+    - [OpenAI Agents SDK](#openai-agents-sdk)
+    - [Crew AI 🤝](#crew-ai-)
+      - [Offerings 📦](#offerings-)
+      - [Provides 2 Frameworks 🧩](#provides-2-frameworks-)
+      - [Core Concepts 🧠](#core-concepts-)
+      - [YAML Configuration 📝](#yaml-configuration-)
+      - [Crew PY Config 🐍](#crew-py-config-)
+      - [Crew LiteLLM ⚡](#crew-litellm-)
+      - [Crew Projects 🚀](#crew-projects-)
+  - [Top Level Complex 🔝](#top-level-complex-)
+  - [Resources vs Tools: The Building Blocks 🧰](#resources-vs-tools-the-building-blocks-)
+    - [Resources: Knowledge \& Data 📚](#resources-knowledge--data-)
+    - [Tools: Actions \& Capabilities 🛠️](#tools-actions--capabilities-️)
+  - [OpenAI Agents SDK 🤖](#openai-agents-sdk-)
+    - [Key Terminology 📚](#key-terminology-)
+    - [Implementation Steps 📋](#implementation-steps-)
+  - [Contributing 🤝](#contributing-)
 
 <hr style="height:2px;border-width:0;color:gray;background-color:#007ACC">
 
@@ -41,6 +61,14 @@
 ```bash
 # Initialize your environment with dependencies
 uv sync
+# In case of any issues
+uv self update
+uv lock --upgrade
+uv sync
+
+# CrewAI
+uv tool install crew
+uv tool upgrade crew
 ```
 
 <hr style="height:1px;border-width:0;color:gray;background-color:#e1e4e8">
@@ -143,8 +171,66 @@ Agents differ from workflows by being:
 
 ## Complex Ones 🧩
 
-1. **OpenAI Agents SDK** — Building intelligent agents with OpenAI's technology
-2. **Crew AI** — Multi-agent framework for collaborative AI systems
+### OpenAI Agents SDK
+- Building intelligent agents with OpenAI's technology
+
+<div align="center">
+  <img src="./assets/OpenAI_Agents_SDK.png" alt="OpenAI Agents SDK" width="700">
+  <p><em>OpenAI's framework for building, deploying, and managing intelligent agents</em></p>
+</div>
+
+### Crew AI 🤝
+
+Crew AI is a multi-agent framework for collaborative AI systems, enabling teams of agents to work together efficiently on complex tasks.
+
+#### Offerings 📦
+
+<div align="center">
+  <img src="./assets/CrewAI_Offerings.png" alt="CrewAI Offerings" width="700">
+  <p><em>Comprehensive offerings for building and managing agent teams</em></p>
+</div>
+
+#### Provides 2 Frameworks 🧩
+
+<div align="center">
+  <img src="./assets/Crew_Frameworks.png" alt="Crew Frameworks" width="700">
+  <p><em>Provides two main frameworks for agent collaboration</em></p>
+</div>
+
+#### Core Concepts 🧠
+
+<div align="center">
+  <img src="./assets/Crew_Core_Concepts.png" alt="Crew Core Concepts" width="700">
+  <p><em>Key ideas and building blocks in Crew AI</em></p>
+</div>
+
+#### YAML Configuration 📝
+
+<div align="center">
+  <img src="./assets/Crew_YAML_Config.png" alt="Crew YAML Config" width="700">
+  <p><em>Example of Crew AI YAML-based configuration</em></p>
+</div>
+
+#### Crew PY Config 🐍
+
+<div align="center">
+  <img src="./assets/Crew_Py_Config.png" alt="Crew Py Config" width="700">
+  <p><em>Example of Crew AI Python-based configuration</em></p>
+</div>
+
+#### Crew LiteLLM ⚡
+
+<div align="center">
+  <img src="./assets/Crew_Lite_LLM.png" alt="Crew Lite LLM" width="700">
+  <p><em>Example of Crew AI Python-based configuration</em></p>
+</div>
+
+#### Crew Projects 🚀
+
+<div align="center">
+  <img src="./assets/Crew_Projects.png" alt="Crew Projects" width="700">
+  <p><em>Example of Crew AI Python-based configuration</em></p>
+</div>
 
 <hr style="height:1px;border-width:0;color:gray;background-color:#e1e4e8">
 
@@ -171,11 +257,6 @@ Agents differ from workflows by being:
 </div>
 
 ### Tools: Actions & Capabilities 🛠️
-
-<div align="center">
-  <img src="./assets/Tools.png" alt="Tools" width="700">
-  <p><em>Functional abilities that enable agents to interact with their environment</em></p>
-</div>
 
 <div align="center">
   <h3>Theory vs Practice 📊</h3>
@@ -219,9 +300,6 @@ Agents differ from workflows by being:
 </div>
 
 <hr style="height:2px;border-width:0;color:gray;background-color:#007ACC">
-
-
-<hr style="height:1px;border-width:0;color:gray;background-color:#e1e4e8">
 
 ## Contributing 🤝
 
