@@ -232,6 +232,18 @@ Crew AI is a multi-agent framework for collaborative AI systems, enabling teams 
   <p><em>Example of Crew AI Python-based configuration</em></p>
 </div>
 
+#### Coder Output 🧠
+
+<div align="center">
+  <img src="./assets/Crew_Coder_Output1.png" alt="Crew Coder Output1" width="700">
+  <p><em>Example of Crew AI Python-based configuration</em></p>
+</div>
+
+<div align="center">
+  <img src="./assets/Crew_Coder_Output2.png" alt="Crew Coder Output2" width="700">
+  <p><em>Example of Crew AI Python-based configuration</em></p>
+</div>
+
 <hr style="height:1px;border-width:0;color:gray;background-color:#e1e4e8">
 
 ## Top Level Complex 🔝

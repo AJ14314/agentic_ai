@@ -1,0 +1,19 @@
+{
+  "companies": [
+    {
+      "name": "Infosys",
+      "ticker": "INFY",
+      "reason": "Collaboration with Life Insurance Corporation of India (LIC) to drive AI-led engineering transformation."
+    },
+    {
+      "name": "Persistent Systems",
+      "ticker": "PERSISTENT",
+      "reason": "Reported strong FY25 revenue of $1409.1M with 18.8% year-over-year growth and a 14.7% EBIT margin."
+    },
+    {
+      "name": "LTIMindtree",
+      "ticker": "LTIM",
+      "reason": "Secured its largest ever deal worth $450 million, signaling strong growth and market confidence."
+    }
+  ]
+}

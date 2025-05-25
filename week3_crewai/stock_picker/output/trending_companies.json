@@ -1,0 +1,14 @@
+{
+  "companies": [
+    {
+      "name": "NPST",
+      "ticker": "NPST",
+      "reason": "Transitions to NSE and BSE Mainboards, indicating strategic growth and innovation."
+    },
+    {
+      "name": "NuSummit (formerly NSEIT)",
+      "ticker": "Unknown",
+      "reason": "Rebranding signals a new era of global innovation for the technology business."
+    }
+  ]
+}

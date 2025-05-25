@@ -1,0 +1,22 @@
+{
+  "research_list": [
+    {
+      "name": "Infosys (INFY)",
+      "market_position": "A leading global IT services and consulting company. Known for its strong presence in outsourcing and digital transformation.",
+      "future_outlook": "Positive, driven by digital transformation initiatives and strategic partnerships. The collaboration with LIC to drive AI-led engineering transformation positions Infosys well for future growth.",
+      "investment_potential": "Considerable, given its robust financials, debt-free status, and expanding AI capabilities. Analysts expect Infosys to outperform peers in revenue and margin stability. However, some valuations indicate it might be slightly overvalued currently. Investors should watch for developments in the LIC partnership and overall digital transformation market trends. (Sources: https://www.infosys.com/investors/shareholder-services/faqs.html, https://www.cnbctv18.com/market/infosys-coforge-shares-it-stocks-to-buy-bernstein-highlights-largecap-midcap-stocks-better-fy26-prospects-19609368.htm, https://www.alphaspread.com/security/nse/infy/summary, https://www.infosys.com/newsroom/press-releases/2024/collaborates-lic-accelerate-digital-transformation.html)"
+    },
+    {
+      "name": "Persistent Systems (PERSISTENT)",
+      "market_position": "A global services and solutions company specializing in digital engineering and enterprise modernization. Strong in software product engineering services.",
+      "future_outlook": "Promising, with consistent revenue growth and a healthy EBIT margin. The company's focus on digital engineering positions it favorably in the current market. However, investors should be mindful of events like the UnitedHealth Group CEO's departure impacting forecasts.",
+      "investment_potential": "Attractive due to its strong financial performance ($1409.1M FY25 revenue with 18.8% Y-o-Y growth and a 14.7% EBIT margin) and consistent growth. While some valuations suggest it may be currently overvalued, analysts predict continued revenue growth. Consider the potential impact of client-specific issues on its financial outlook. (Sources: https://www.persistent.com/media/press-releases/q4-fy25-results/, https://www.moneycontrol.com/news/business/markets/persistent-systems-shares-fall-3-as-major-us-client-s-ceo-leaves-abruptly-firm-withdraws-forecast-13026881.html, https://www.alphaspread.com/security/nse/persistent/summary)"
+    },
+    {
+      "name": "LTIMindtree (LTIM)",
+      "market_position": "A global technology consulting and digital solutions company formed from the merger of L&T Infotech and Mindtree. Offers a broad range of IT services and solutions.",
+      "future_outlook": "Positive, driven by large deal wins and a focus on AI-powered solutions. Securing its largest-ever deal worth $450 million indicates strong market confidence and growth potential.",
+      "investment_potential": "Good, supported by robust fundamentals and a strong deal pipeline. Its focus on implementing AI-powered operating models should drive future growth. Investors should monitor the integration benefits from the merger and the successful execution of large deals. (Sources: https://www.ltimindtree.com/news-event/ltimindtree-secures-450m-deal-with-global-agribusiness/, https://www.reuters.com/world/india/indian-it-exporter-ltimindtree-bags-450-million-deal-its-largest-ever-2025-05-12/, https://www.moneycontrol.com/news/business/ltimindtree-bags-its-largest-ever-450-million-multi-year-ai-deal-13021152.html)"
+    }
+  ]
+}

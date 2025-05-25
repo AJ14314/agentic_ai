@@ -1,0 +1,3 @@
+The chosen company is NPST. It was chosen due to its strong growth, transition to major exchanges, and expansion into new markets. While NPST exhibits volatility and a recent decline in net sales, its overall stellar performance in FY 2024, securing orders for innovative solutions, and expansion into new verticals and international markets outweigh these concerns.
+
+NuSummit was not selected because, although it is a promising technology company specializing in AI, cloud, cybersecurity, and business modernization, and is backed by Investcorp, it is a private company, making direct investment not possible.
