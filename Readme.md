@@ -201,6 +201,14 @@ Crew AI is a multi-agent framework for collaborative AI systems, enabling teams 
 
 - **AutoGen** — Multi-agent conversation framework for AI applications
 
+<div align="center"> <img src="./assets/Auto_Gen.png" alt="Auto Gen" width="700"> <p><em>AutoGen</em></p> </div>
+
+<div align="center"> <img src="./assets/AutoGen_Framework.png" alt="AutoGen Framework" width="700"> <p><em>Framework</em></p> </div>
+
+### ⚙️ Core Concepts
+
+<div align="center"> <img src="./assets/Core_Concepts.png" alt="Core Concepts" width="700"> <p><em>Core Concepts</em></p> </div>
+
 <p><em>Many, many more! Which to pick depends on the use case and preference</em></p>
 
 ---
