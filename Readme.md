@@ -5,12 +5,12 @@
 <img alt="GitHub Repository" src="https://img.shields.io/badge/GitHub-Repository-blue?logo=github">
 <img alt="Python Support" src="https://img.shields.io/badge/Python-3.7+-yellow.svg">
 <img alt="License" src="https://img.shields.io/badge/License-MIT-green.svg">
-<img alt="Last Updated" src="https://img.shields.io/badge/Last Updated-May 2025-brightgreen.svg">
+<img alt="Last Updated" src="https://img.shields.io/badge/Last%20Updated-May%202025-brightgreen.svg">
 
 <p align="center"> <img src="./assets/autonomy.png" alt="AI Agents" width="200"> </p>
 </div>
 
-<p align="center"> <strong>Exploring the world of AI agents, workflows, and autonomous systems</strong> </p>
+<p align="center"><strong>Exploring the world of AI agents, workflows, and autonomous systems</strong></p>
 
 ---
 
@@ -35,7 +35,7 @@
       - [📦 Offerings](#-offerings)
       - [🧹 Provides 2 Frameworks](#-provides-2-frameworks)
       - [🧠 Core Concepts](#-core-concepts)
-      - [📜 YAML Configuration](#-yaml-configuration)
+      - [📝 YAML Configuration](#-yaml-configuration)
       - [🐍 Crew PY Config](#-crew-py-config)
       - [⚡ Crew LiteLLM](#-crew-litellm)
       - [🚀 Crew Projects](#-crew-projects)
@@ -48,7 +48,9 @@
       - [🧠 State](#-state)
       - [🔍 LangSmith](#-langsmith)
       - [⚙️ The Super-Step](#-the-super-step)
-    - [🤖 AutoGen](#-autogen)
+    - [🧠 AutoGen](#-autogen)
+      - [⚙️ Core Concepts](#-core-concepts-1)
+      - [🌐 Distributed Runtime](#-distributed-runtime)
   - [🧰 Resources vs Tools: The Building Blocks](#-resources-vs-tools-the-building-blocks)
     - [📚 Resources: Knowledge & Data](#-resources-knowledge--data)
     - [🛠️ Tools: Actions & Capabilities](#-tools-actions--capabilities)
@@ -199,15 +201,37 @@ Crew AI is a multi-agent framework for collaborative AI systems, enabling teams 
 <div align="center"> <img src="./assets/Super_Step.png" alt="Super Step 1" width="700"> <p><em>Super Step</em></p> </div>
 <div align="center"> <img src="./assets/Super_Step1.png" alt="Super Step 2" width="700"> <p><em>Super Step Explanation</em></p> </div>
 
-- **AutoGen** — Multi-agent conversation framework for AI applications
+## 🧠 AutoGen
+AutoGen is a multi-agent conversation framework enabling LLM agents to work together to accomplish complex tasks in a coordinated manner.
 
-<div align="center"> <img src="./assets/Auto_Gen.png" alt="Auto Gen" width="700"> <p><em>AutoGen</em></p> </div>
+<div align="center">
+  <img src="./assets/Auto_Gen.png" alt="AutoGen" width="700">
+  <p><em>AutoGen multi-agent system</em></p>
+</div>
 
-<div align="center"> <img src="./assets/AutoGen_Framework.png" alt="AutoGen Framework" width="700"> <p><em>Framework</em></p> </div>
+<div align="center">
+  <img src="./assets/AutoGen_Framework.png" alt="AutoGen Framework" width="700">
+  <p><em>Framework Architecture</em></p>
+</div>
 
-### ⚙️ Core Concepts
+### 🧩 Core Concepts
+<div align="center">
+  <img src="./assets/Core_Concepts.png" alt="AutoGen Core Concepts" width="700">
+  <p><em>Role-based agent architecture with dynamic interactions</em></p>
+</div>
 
-<div align="center"> <img src="./assets/Core_Concepts.png" alt="Core Concepts" width="700"> <p><em>Core Concepts</em></p> </div>
+### 🌐 Distributed Runtime
+
+<div align="center">
+  <img src="./assets/Distributed_Runtime.png" alt="Distributed Runtime" width="700">
+  <p><em>Distributed Runtime</em></p>
+</div>
+
+- **Assistant Agents**: Role-driven agents that take actions, perform tasks, or serve as knowledge agents.
+- **User Proxy Agent**: Simulates the user role, triggering tasks, and interacting with assistant agents.
+- **Group Chat / Group Controller**: Coordinates multiple agents in a task-focused dialogue.
+- **Tool Integration**: Seamless inclusion of external tools for agents to act upon.
+
 
 <p><em>Many, many more! Which to pick depends on the use case and preference</em></p>
 
