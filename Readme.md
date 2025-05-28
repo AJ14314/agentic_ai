@@ -14,49 +14,53 @@
 
 ---
 
-## 📋 Table of Contents
+## 📚 Table of Contents
 - [🤖 AI Agents Framework](#-ai-agents-framework)
-  - [📋 Table of Contents](#-table-of-contents)
+  - [📚 Table of Contents](#-table-of-contents)
   - [🚀 Getting Started](#-getting-started)
   - [🧠 What Are AI Agents?](#-what-are-ai-agents)
   - [🏗️ Agentic Systems Architecture](#-agentic-systems-architecture)
-  - [📊 Five Workflow Design Patterns](#-five-workflow-design-patterns)
-    - [⛓️ Prompt Chaining](#️-prompt-chaining)
-    - [🔀 Routing](#-routing)
+  - [🔁 Five Workflow Design Patterns](#-five-workflow-design-patterns)
+    - [🔗 Prompt Chaining](#-prompt-chaining)
+    - [🚦 Routing](#-routing)
     - [⚡ Parallelization](#-parallelization)
     - [🎭 Orchestrator-Worker](#-orchestrator-worker)
-    - [✅ Evaluator-Optimizer](#-evaluator-optimizer)
+    - [🧪 Evaluator-Optimizer](#-evaluator-optimizer)
   - [🔄 Agents: Beyond Structured Workflows](#-agents-beyond-structured-workflows)
   - [⚠️ Risk of Agent Frameworks](#-risk-of-agent-frameworks)
-  - [🛠️ Agentic AI Frameworks](#-agentic-ai-frameworks)
-  - [🧹 Complex Ones](#-complex-ones)
+  - [🧠 Agentic AI Frameworks](#-agentic-ai-frameworks)
+  - [🧹 Complex Frameworks](#-complex-frameworks)
     - [🤖 OpenAI Agents SDK](#-openai-agents-sdk)
     - [🤝 Crew AI](#-crew-ai)
       - [📦 Offerings](#-offerings)
-      - [🧹 Provides 2 Frameworks](#-provides-2-frameworks)
+      - [🔧 Two Frameworks](#-two-frameworks)
       - [🧠 Core Concepts](#-core-concepts)
       - [📝 YAML Configuration](#-yaml-configuration)
-      - [🐍 Crew PY Config](#-crew-py-config)
-      - [⚡ Crew LiteLLM](#-crew-litellm)
-      - [🚀 Crew Projects](#-crew-projects)
+      - [🐍 Python Configuration](#-python-configuration)
+      - [⚡ LiteLLM](#-litellm)
+      - [🚀 Projects](#-projects)
       - [🧠 Coder Output](#-coder-output)
-  - [🔝 Top Level Complex](#-top-level-complex)
-    - [🔸 LangGraph](#-langgraph)
-      - [🌐 The LangChain Ecosystem](#-the-langchain-ecosystem)
+  - [🏛️ Top-Level Complex Frameworks](#-top-level-complex-frameworks)
+    - [🌐 LangGraph](#-langgraph)
+      - [🧽 The LangChain Ecosystem](#-the-langchain-ecosystem)
       - [📖 Terminology](#-terminology)
-      - [🪜 Five Steps to the First Graph](#-five-steps-to-the-first-graph)
+      - [🩜 Steps to the First Graph](#-steps-to-the-first-graph)
       - [🧠 State](#-state)
       - [🔍 LangSmith](#-langsmith)
       - [⚙️ The Super-Step](#-the-super-step)
     - [🧠 AutoGen](#-autogen)
-      - [⚙️ Core Concepts](#-core-concepts-1)
-      - [🌐 Distributed Runtime](#-distributed-runtime)
-  - [🧰 Resources vs Tools: The Building Blocks](#-resources-vs-tools-the-building-blocks)
-    - [📚 Resources: Knowledge & Data](#-resources-knowledge--data)
-    - [🛠️ Tools: Actions & Capabilities](#-tools-actions--capabilities)
-  - [🤖 OpenAI Agents SDK](#-openai-agents-sdk-1)
-    - [📚 Key Terminology](#-key-terminology)
-    - [📋 Implementation Steps](#-implementation-steps)
+      - [🔧 Core Concepts](#-core-concepts-1)
+      - [🚁 Distributed Runtime](#-distributed-runtime)
+    - [📱 MCP: Model-Context-Protocol](#-mcp-model-context-protocol)
+      - [🔍 Diagrams](#-diagrams)
+      - [📘 Core Concepts](#-core-concepts-2)
+      - [🛠️ Architecture](#-architecture)
+  - [🛠️ Resources vs Tools](#-resources-vs-tools)
+    - [📚 Resources](#-resources)
+    - [🔨 Tools](#-tools)
+  - [🤖 OpenAI Agents SDK (Revisited)](#-openai-agents-sdk-revisited)
+    - [📘 Key Terminology](#-key-terminology)
+    - [📝 Implementation Steps](#-implementation-steps)
   - [🤝 Contributing](#-contributing)
 
 ---
@@ -232,6 +236,32 @@ AutoGen is a multi-agent conversation framework enabling LLM agents to work toge
 - **Group Chat / Group Controller**: Coordinates multiple agents in a task-focused dialogue.
 - **Tool Integration**: Seamless inclusion of external tools for agents to act upon.
 
+## 📱 MCP: Model-Context-Protocol
+
+A standardized protocol for managing interactions between models, contexts, and execution protocols in AI agent systems.
+
+### 🔍 Diagrams
+<div align="center">
+  <img src="./assets/MCP1.png" alt="MCP Diagram 1" width="700">
+  <p><em>MCP Diagram 1</em></p>
+</div>
+
+<div align="center">
+  <img src="./assets/MCP2.png" alt="MCP Diagram 2" width="700">
+  <p><em>MCP Diagram 2</em></p>
+</div>
+
+### 📘 Core Concepts
+<div align="center">
+  <img src="./assets/MCP_Core_Concepts.png" alt="MCP Core Concepts" width="700">
+  <p><em>MCP Core Concepts</em></p>
+</div>
+
+### 🛠️ Architecture
+<div align="center">
+  <img src="./assets/MCP_Architecture.png" alt="MCP Architecture" width="700">
+  <p><em>MCP Architecture</em></p>
+</div>
 
 <p><em>Many, many more! Which to pick depends on the use case and preference</em></p>
 
